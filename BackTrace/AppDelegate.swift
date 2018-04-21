@@ -15,16 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         GMSServices.provideAPIKey(Keys.googleMapAPIKey)
         GMSPlacesClient.provideAPIKey(Keys.googleMapAPIKey)
 
+        loadData()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = TabBarController()
 
         return true
+    }
+    
+    func loadData() {
+//        Storage.clear(.documents)
+        DataSource.loadLocations()
+        DataSource.loadJournals()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

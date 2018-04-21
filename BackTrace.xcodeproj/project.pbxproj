@@ -7,11 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613209D8207C10830063BF7E /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613209D7207C10830063BF7E /* JournalViewController.swift */; };
+		613209DA207C110E0063BF7E /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613209D9207C110E0063BF7E /* Journal.swift */; };
+		61510CF620831F4D0027DA19 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CF520831F4D0027DA19 /* LocationTableViewController.swift */; };
+		61510CF820831F940027DA19 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CF720831F940027DA19 /* LocationViewController.swift */; };
+		61510CFC2085009E0027DA19 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CFB2085009E0027DA19 /* PhotoPicker.swift */; };
 		619225E9207951B00080C73C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225E8207951B00080C73C /* Keys.swift */; };
 		619225EB207955B80080C73C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 619225EA207955B80080C73C /* Podfile */; };
 		619225EF207972BE0080C73C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225EE207972BE0080C73C /* TabBarController.swift */; };
 		619225F32079802E0080C73C /* LocationRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225F22079802E0080C73C /* LocationRecord.swift */; };
-		619225F52079832C0080C73C /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225F42079832C0080C73C /* RecordViewController.swift */; };
+		619225F52079832C0080C73C /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225F42079832C0080C73C /* JournalTableViewController.swift */; };
 		619225FA207987610080C73C /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225F9207987610080C73C /* Storage.swift */; };
 		619225FC207988560080C73C /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225FB207988560080C73C /* Display.swift */; };
 		61A3DFB02073155500B5C2A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3DFAF2073155500B5C2A0 /* AppDelegate.swift */; };
@@ -20,6 +25,7 @@
 		61A3DFBA2073155600B5C2A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A3DFB82073155600B5C2A0 /* LaunchScreen.storyboard */; };
 		61A3DFC52073155600B5C2A0 /* BackTraceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3DFC42073155600B5C2A0 /* BackTraceTests.swift */; };
 		61A3DFD02073155600B5C2A0 /* BackTraceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3DFCF2073155600B5C2A0 /* BackTraceUITests.swift */; };
+		61D3BE63208BA4CD00511E20 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BE62208BA4CD00511E20 /* DataSource.swift */; };
 		7C784EE135F06E72A1E21F6C /* libPods-BackTrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9ECDE9F4B932CF20B4A9C292 /* libPods-BackTrace.a */; };
 /* End PBXBuildFile section */
 
@@ -41,11 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		613209D7207C10830063BF7E /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
+		613209D9207C110E0063BF7E /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		61510CF520831F4D0027DA19 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		61510CF720831F940027DA19 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		61510CFB2085009E0027DA19 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		619225E8207951B00080C73C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		619225EA207955B80080C73C /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		619225EE207972BE0080C73C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		619225F22079802E0080C73C /* LocationRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRecord.swift; sourceTree = "<group>"; };
-		619225F42079832C0080C73C /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		619225F42079832C0080C73C /* JournalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewController.swift; sourceTree = "<group>"; };
 		619225F9207987610080C73C /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		619225FB207988560080C73C /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		61A3DFAC2073155500B5C2A0 /* BackTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +71,7 @@
 		61A3DFCB2073155600B5C2A0 /* BackTraceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackTraceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A3DFCF2073155600B5C2A0 /* BackTraceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackTraceUITests.swift; sourceTree = "<group>"; };
 		61A3DFD12073155600B5C2A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61D3BE62208BA4CD00511E20 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		7B3DB227CBC7FEA1CE37B70F /* Pods-BackTrace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackTrace.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackTrace/Pods-BackTrace.debug.xcconfig"; sourceTree = "<group>"; };
 		84E68157D691DBA1FE276B72 /* Pods-BackTrace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackTrace.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackTrace/Pods-BackTrace.release.xcconfig"; sourceTree = "<group>"; };
 		9ECDE9F4B932CF20B4A9C292 /* libPods-BackTrace.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BackTrace.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +125,11 @@
 			children = (
 				61A3DFB12073155500B5C2A0 /* MapViewController.swift */,
 				619225EE207972BE0080C73C /* TabBarController.swift */,
-				619225F42079832C0080C73C /* RecordViewController.swift */,
+				61510CF520831F4D0027DA19 /* LocationTableViewController.swift */,
+				61510CF720831F940027DA19 /* LocationViewController.swift */,
+				619225F42079832C0080C73C /* JournalTableViewController.swift */,
+				613209D7207C10830063BF7E /* JournalViewController.swift */,
+				61510CFB2085009E0027DA19 /* PhotoPicker.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -121,7 +137,9 @@
 		619225F1207980220080C73C /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				61D3BE62208BA4CD00511E20 /* DataSource.swift */,
 				619225F22079802E0080C73C /* LocationRecord.swift */,
+				613209D9207C110E0063BF7E /* Journal.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -367,14 +385,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61510CFC2085009E0027DA19 /* PhotoPicker.swift in Sources */,
+				61510CF820831F940027DA19 /* LocationViewController.swift in Sources */,
+				613209D8207C10830063BF7E /* JournalViewController.swift in Sources */,
+				61D3BE63208BA4CD00511E20 /* DataSource.swift in Sources */,
 				619225F32079802E0080C73C /* LocationRecord.swift in Sources */,
 				619225EF207972BE0080C73C /* TabBarController.swift in Sources */,
 				61A3DFB22073155500B5C2A0 /* MapViewController.swift in Sources */,
-				619225F52079832C0080C73C /* RecordViewController.swift in Sources */,
+				619225F52079832C0080C73C /* JournalTableViewController.swift in Sources */,
+				61510CF620831F4D0027DA19 /* LocationTableViewController.swift in Sources */,
 				619225FA207987610080C73C /* Storage.swift in Sources */,
 				619225E9207951B00080C73C /* Keys.swift in Sources */,
 				619225FC207988560080C73C /* Display.swift in Sources */,
 				61A3DFB02073155500B5C2A0 /* AppDelegate.swift in Sources */,
+				613209DA207C110E0063BF7E /* Journal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
