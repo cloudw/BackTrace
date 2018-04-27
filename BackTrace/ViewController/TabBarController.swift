@@ -11,10 +11,12 @@ import GoogleMaps
 import GooglePlaces
 
 class TabBarController : UITabBarController, CLLocationManagerDelegate {
+    let locationManager = CLLocationManager()
+
     let journalTableViewController = JournalTableViewController()
     let locationTabelViewController = LocationTableViewController()
     let mapViewController = MapViewController()
-    let locationManager = CLLocationManager()
+    let userSettingController = UserSettingViewController(style: UITableViewStyle.grouped)
 
     override func viewDidLoad() {
         journalTableViewController.title = "Journal"
@@ -26,7 +28,10 @@ class TabBarController : UITabBarController, CLLocationManagerDelegate {
         mapViewController.title = "Map"
         mapViewController.tabBarItem = UITabBarItem(title: "Map", image: #imageLiteral(resourceName: "earth-america-7"), tag: 2)
         
-        viewControllers = [journalTableViewController, locationTabelViewController, mapViewController].map { UINavigationController(rootViewController: $0) }
+        userSettingController.title = "Settings"
+        userSettingController.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 3)
+        
+        viewControllers = [journalTableViewController, locationTabelViewController, mapViewController, userSettingController].map { UINavigationController(rootViewController: $0) }
         
         setupLocationManager()
     }
@@ -48,12 +53,21 @@ class TabBarController : UITabBarController, CLLocationManagerDelegate {
                                               zoom: mapViewController.zoomLevel)
         DataSource.currentLatitude = location.coordinate.latitude
         DataSource.currentLongtitude = location.coordinate.longitude
+        locationTabelViewController.addLocation()
+        
         if mapViewController.mapView.isHidden {
             mapViewController.mapView.isHidden = false
             mapViewController.mapView.camera = camera
         } else {
             mapViewController.mapView.animate(to: camera)
         }
-        
+    }
+    
+    func setLocationTracking(startTracking: Bool) {
+        if (startTracking) {
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.stopUpdatingLocation()
+        }
     }
 }

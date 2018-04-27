@@ -51,7 +51,7 @@ class DataSource {
         
         return newId
     }
-
+    
     static func removeLocation(index: Int) {
         let locationId = locationIds[index]
         locationIds.remove(at: index)

@@ -124,7 +124,7 @@ class JournalTableViewController: UITableViewController, UIPopoverPresentationCo
     }
     
     func showRecordDetail(cell: JournalCell) {
-        let detailController = JournalViewController()
+        let detailController = JournalEditionController()
         detailController.loadRecord(record: cell.record!)
 
         self.navigationController?.pushViewController(detailController, animated: true)

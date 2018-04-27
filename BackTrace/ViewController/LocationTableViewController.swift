@@ -96,7 +96,7 @@ class LocationTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addLocation))
     }
     
-    @objc private func addLocation() {
+    @objc func addLocation() {
         let newId = DataSource.addLocation()
         tableView.register(LocationCell.self, forCellReuseIdentifier: newId)
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
@@ -124,7 +124,7 @@ class LocationTableViewController: UITableViewController {
     }
     
     func showRecordDetail(cell: LocationCell) {
-        let detailController = LocationViewController()
+        let detailController = LocationEditionController()
         detailController.loadRecord(record: cell.record!)
 
         self.navigationController?.pushViewController(detailController, animated: true)
