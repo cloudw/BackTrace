@@ -47,10 +47,18 @@ class Journal : Codable {
         self.locationIds.append(location.locationId)
     }
     
+    func getDateStringShort() -> String {
+        let formatter = DateFormatter()
+        let weekStr = formatter.weekdaySymbols[Calendar.current.component(.weekday, from: date) - 1]
+        formatter.dateFormat = "MM/dd/yyyy"
+        return weekStr + ", " + formatter.string(from: date)
+    }
+    
     func getDateString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
-        return formatter.string(from: date)
+        let weekStr = formatter.weekdaySymbols[Calendar.current.component(.weekday, from: date) - 1]
+        formatter.dateFormat = "MM/dd/yyyy hh:mm"
+        return weekStr + ", " + formatter.string(from: date)
     }
     
     // Referenced image encoding: https://stackoverflow.com/questions/46197785/how-to-conform-uiimage-to-codable

@@ -51,9 +51,9 @@ class TabBarController : UITabBarController, CLLocationManagerDelegate {
         let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
                                               longitude: location.coordinate.longitude,
                                               zoom: mapViewController.zoomLevel)
-        DataSource.currentLatitude = location.coordinate.latitude
-        DataSource.currentLongtitude = location.coordinate.longitude
-        locationTabelViewController.addLocation()
+        LocationRecordManager.currentLatitude = location.coordinate.latitude
+        LocationRecordManager.currentLongtitude = location.coordinate.longitude
+        locationTabelViewController.addLocation(starred: false)
         
         if mapViewController.mapView.isHidden {
             mapViewController.mapView.isHidden = false

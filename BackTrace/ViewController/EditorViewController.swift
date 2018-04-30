@@ -19,6 +19,9 @@ class EditorViewController : UIViewController  {
     }
     
     private func setupScrollView() {
+        title = "Edit"
+        navigationController?.navigationBar.prefersLargeTitles = false
+
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -52,7 +55,7 @@ class EditorViewController : UIViewController  {
         keyboardToolBar.setItems([doneEditingButton], animated: false)
         keyboardToolBar.sizeToFit()
     }
-
+    
     @objc private func doneEditing() {
         view.endEditing(true)
     }

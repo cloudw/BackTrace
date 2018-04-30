@@ -9,64 +9,6 @@
 import UIKit
 import Foundation
 
-class SettingCell : UITableViewCell {
-    var setupCompleted = false
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
-        textLabel?.text = reuseIdentifier
-        backgroundColor = .white
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func addRightItem(view: UIView) {
-        addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
-        view.widthAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true
-        view.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-    }
-}
-
-class RecordDistanceCell : SettingCell, UITextFieldDelegate {
-    func addRightItem(view: UITextField) {
-        super.addRightItem(view: view)
-        view.placeholder = "Distance in miles"
-        view.borderStyle = .roundedRect
-        view.clearButtonMode = .whileEditing
-        view.keyboardType = .numberPad
-        view.delegate = self
-    }
-}
-
-class TableHeader : UITableViewHeaderFooterView {
-    let title = UILabel()
-    
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        title.text = reuseIdentifier
-        setupView()
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
-        addSubview(title)
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        title.leadingAnchor.constraintEqualToSystemSpacingAfter(self.leadingAnchor, multiplier: 2).isActive = true
-        title.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        title.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        title.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        title.textColor = .gray
-    }
-}
-
 class UserSettingViewController : UITableViewController {
     let userDefault = UserDefaults()
     let recordLocationSwitch = UISwitch()
@@ -91,12 +33,12 @@ class UserSettingViewController : UITableViewController {
             }
         }
     }
-    
+
     private func loadUserSettings() {
         recordLocationSwitch.isOn = userDefault.bool(forKey: preferenceKeys.recordStarted.description)
         recordDistanceField.text = String(userDefault.double(forKey: preferenceKeys.recordDistance.description))
     }
-    
+
     override init(style: UITableViewStyle) {
         cellTitles = [
             "Location Tracking": ["Track Location", "Distance for new record"],
@@ -117,6 +59,11 @@ class UserSettingViewController : UITableViewController {
                 tableView.register(SettingCell.self, forCellReuseIdentifier: cellTitle)
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        super.viewWillAppear(animated)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -167,3 +114,62 @@ class UserSettingViewController : UITableViewController {
         }
     }
 }
+
+class SettingCell : UITableViewCell {
+    var setupCompleted = false
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .value1, reuseIdentifier: reuseIdentifier)
+        textLabel?.text = reuseIdentifier
+        backgroundColor = .white
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addRightItem(view: UIView) {
+        addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15).isActive = true
+        view.widthAnchor.constraint(greaterThanOrEqualToConstant: 30).isActive = true
+        view.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+    }
+}
+
+class RecordDistanceCell : SettingCell, UITextFieldDelegate {
+    func addRightItem(view: UITextField) {
+        super.addRightItem(view: view)
+        view.placeholder = "Distance in miles"
+        view.borderStyle = .roundedRect
+        view.clearButtonMode = .whileEditing
+        view.keyboardType = .numberPad
+        view.delegate = self
+    }
+}
+
+class TableHeader : UITableViewHeaderFooterView {
+    let title = UILabel()
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        title.text = reuseIdentifier
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupView() {
+        addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        title.leadingAnchor.constraintEqualToSystemSpacingAfter(self.leadingAnchor, multiplier: 2).isActive = true
+        title.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        title.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        title.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        title.textColor = .gray
+    }
+}
+

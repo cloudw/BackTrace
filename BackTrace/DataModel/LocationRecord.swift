@@ -16,6 +16,7 @@ class LocationRecord : Codable {
     var locationName:String
     var address:String?
     var date:Date
+    var starred:Bool
     
     private enum CodingKeys: String, CodingKey {
         case id
@@ -25,18 +26,20 @@ class LocationRecord : Codable {
         case locationName
         case address
         case date
+        case starred
     }
     
-    init(id: String, latitude:Double, longtitude:Double) {
+    init(id: String, latitude:Double, longtitude:Double, starred:Bool) {
         self.locationId = id
         self.image = #imageLiteral(resourceName: "add_image")
         self.latitude = latitude
         self.longtitude = longtitude
-        self.locationName = "(" + String(latitude) + ", " + String(longtitude) + ")"
+        self.locationName = "New Location"
         self.date = Date()
+        self.starred = starred
     }
     
-    init(id: String, latitude:Double, longtitude:Double, date:Date, locationName: String, address:String?, image:UIImage?) {
+    init(id: String, latitude:Double, longtitude:Double, date:Date, locationName: String, address:String?, image:UIImage?, starred:Bool) {
         self.locationId = id
         self.image = image
         self.latitude = latitude
@@ -44,6 +47,7 @@ class LocationRecord : Codable {
         self.locationName = locationName
         self.address = address
         self.date = date
+        self.starred = starred
     }
     
     func getDateString() -> String {
@@ -67,16 +71,21 @@ class LocationRecord : Codable {
             address = try! container.decode(String.self, forKey: CodingKeys.address)
         }
         
+        var starred = false
+        if container.contains(CodingKeys.starred) {
+            starred = try! container.decode(Bool.self, forKey: CodingKeys.starred)
+        }
+        
         if container.contains(CodingKeys.image) {
             let data = try container.decode(Data.self, forKey: CodingKeys.image)
             guard let image = UIImage(data: data) else {
                 print("No image decoded")
-                self.init(id: id, latitude: latitude, longtitude: longtitude, date:date, locationName: locationName, address: address, image: nil)
+                self.init(id: id, latitude: latitude, longtitude: longtitude, date:date, locationName: locationName, address: address, image: nil, starred: starred)
                 return
             }
-            self.init(id: id, latitude: latitude, longtitude: longtitude, date:date, locationName: locationName, address: address, image: image)
+            self.init(id: id, latitude: latitude, longtitude: longtitude, date:date, locationName: locationName, address: address, image: image, starred: starred)
         } else {
-            self.init(id: id, latitude: latitude, longtitude: longtitude, date:date, locationName: locationName, address: address, image: nil)
+            self.init(id: id, latitude: latitude, longtitude: longtitude, date:date, locationName: locationName, address: address, image: nil, starred: starred)
         }
         
     }
@@ -88,6 +97,7 @@ class LocationRecord : Codable {
         try! container.encode(longtitude, forKey: CodingKeys.longtitude)
         try! container.encode(date, forKey: CodingKeys.date)
         try! container.encode(locationName, forKey: CodingKeys.locationName)
+        try! container.encode(starred, forKey: CodingKeys.starred)
         
         if address != nil {
             try! container.encode(address, forKey: CodingKeys.address)

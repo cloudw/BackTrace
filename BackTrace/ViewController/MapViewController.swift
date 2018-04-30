@@ -17,6 +17,11 @@ class MapViewController: UIViewController {
         return GMSMapView.map(withFrame: CGRect.zero, camera: camera)
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

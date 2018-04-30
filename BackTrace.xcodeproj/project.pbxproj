@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611CC60E2093E38C008416B2 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CC60D2093E38C008416B2 /* TableViewSection.swift */; };
 		613209D8207C10830063BF7E /* JournalEditionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613209D7207C10830063BF7E /* JournalEditionController.swift */; };
 		613209DA207C110E0063BF7E /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613209D9207C110E0063BF7E /* Journal.swift */; };
 		61510CF620831F4D0027DA19 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CF520831F4D0027DA19 /* LocationTableViewController.swift */; };
 		61510CF820831F940027DA19 /* LocationEditionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CF720831F940027DA19 /* LocationEditionController.swift */; };
 		61510CFC2085009E0027DA19 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CFB2085009E0027DA19 /* PhotoPicker.swift */; };
+		6169A290209619B7007C0FC2 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169A28F209619B7007C0FC2 /* LocationViewController.swift */; };
+		6169A292209619D2007C0FC2 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169A291209619D2007C0FC2 /* JournalViewController.swift */; };
+		6169A2942096282E007C0FC2 /* LocationViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169A2932096282E007C0FC2 /* LocationViewSection.swift */; };
+		6169A29620962AE1007C0FC2 /* TableCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169A29520962AE1007C0FC2 /* TableCells.swift */; };
+		6169A29A2096A9FE007C0FC2 /* JournalViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169A2992096A9FE007C0FC2 /* JournalViewSection.swift */; };
+		6169A29E2096BAAD007C0FC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169A29D2096BAAD007C0FC2 /* DetailViewController.swift */; };
+		6169A2A02096BF61007C0FC2 /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169A29F2096BF61007C0FC2 /* FullScreenImageViewController.swift */; };
 		619225E9207951B00080C73C /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225E8207951B00080C73C /* Keys.swift */; };
 		619225EB207955B80080C73C /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 619225EA207955B80080C73C /* Podfile */; };
 		619225EF207972BE0080C73C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225EE207972BE0080C73C /* TabBarController.swift */; };
@@ -19,13 +27,14 @@
 		619225F52079832C0080C73C /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225F42079832C0080C73C /* JournalTableViewController.swift */; };
 		619225FA207987610080C73C /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225F9207987610080C73C /* Storage.swift */; };
 		619225FC207988560080C73C /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619225FB207988560080C73C /* Display.swift */; };
+		619F221B2094D95A0062566E /* LocationRecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619F221A2094D9590062566E /* LocationRecordManager.swift */; };
 		61A3DFB02073155500B5C2A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3DFAF2073155500B5C2A0 /* AppDelegate.swift */; };
 		61A3DFB22073155500B5C2A0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3DFB12073155500B5C2A0 /* MapViewController.swift */; };
 		61A3DFB72073155600B5C2A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61A3DFB62073155600B5C2A0 /* Assets.xcassets */; };
 		61A3DFBA2073155600B5C2A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A3DFB82073155600B5C2A0 /* LaunchScreen.storyboard */; };
 		61A3DFC52073155600B5C2A0 /* BackTraceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3DFC42073155600B5C2A0 /* BackTraceTests.swift */; };
 		61A3DFD02073155600B5C2A0 /* BackTraceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A3DFCF2073155600B5C2A0 /* BackTraceUITests.swift */; };
-		61D3BE63208BA4CD00511E20 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BE62208BA4CD00511E20 /* DataSource.swift */; };
+		61D3BE63208BA4CD00511E20 /* JournalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BE62208BA4CD00511E20 /* JournalManager.swift */; };
 		61D3BE65208BE05200511E20 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BE64208BE05200511E20 /* UserSettingViewController.swift */; };
 		61D3BE68208C344000511E20 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BE67208C344000511E20 /* TextField.swift */; };
 		61D3BE6A208CFFD600511E20 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D3BE69208CFFD600511E20 /* EditorViewController.swift */; };
@@ -50,11 +59,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		611CC60D2093E38C008416B2 /* TableViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
 		613209D7207C10830063BF7E /* JournalEditionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEditionController.swift; sourceTree = "<group>"; };
 		613209D9207C110E0063BF7E /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
 		61510CF520831F4D0027DA19 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		61510CF720831F940027DA19 /* LocationEditionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEditionController.swift; sourceTree = "<group>"; };
 		61510CFB2085009E0027DA19 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		6169A28F209619B7007C0FC2 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		6169A291209619D2007C0FC2 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
+		6169A2932096282E007C0FC2 /* LocationViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewSection.swift; sourceTree = "<group>"; };
+		6169A29520962AE1007C0FC2 /* TableCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCells.swift; sourceTree = "<group>"; };
+		6169A2992096A9FE007C0FC2 /* JournalViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewSection.swift; sourceTree = "<group>"; };
+		6169A29D2096BAAD007C0FC2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		6169A29F2096BF61007C0FC2 /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
 		619225E8207951B00080C73C /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		619225EA207955B80080C73C /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		619225EE207972BE0080C73C /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -62,6 +79,7 @@
 		619225F42079832C0080C73C /* JournalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewController.swift; sourceTree = "<group>"; };
 		619225F9207987610080C73C /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		619225FB207988560080C73C /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		619F221A2094D9590062566E /* LocationRecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRecordManager.swift; sourceTree = "<group>"; };
 		61A3DFAC2073155500B5C2A0 /* BackTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A3DFAF2073155500B5C2A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61A3DFB12073155500B5C2A0 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +92,7 @@
 		61A3DFCB2073155600B5C2A0 /* BackTraceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackTraceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A3DFCF2073155600B5C2A0 /* BackTraceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackTraceUITests.swift; sourceTree = "<group>"; };
 		61A3DFD12073155600B5C2A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		61D3BE62208BA4CD00511E20 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		61D3BE62208BA4CD00511E20 /* JournalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalManager.swift; sourceTree = "<group>"; };
 		61D3BE64208BE05200511E20 /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		61D3BE67208C344000511E20 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		61D3BE69208CFFD600511E20 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -129,15 +147,18 @@
 		619225F0207978740080C73C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				61A3DFB12073155500B5C2A0 /* MapViewController.swift */,
 				619225EE207972BE0080C73C /* TabBarController.swift */,
+				6169A29D2096BAAD007C0FC2 /* DetailViewController.swift */,
+				61D3BE69208CFFD600511E20 /* EditorViewController.swift */,
 				61510CF520831F4D0027DA19 /* LocationTableViewController.swift */,
+				6169A28F209619B7007C0FC2 /* LocationViewController.swift */,
 				61510CF720831F940027DA19 /* LocationEditionController.swift */,
 				619225F42079832C0080C73C /* JournalTableViewController.swift */,
+				6169A291209619D2007C0FC2 /* JournalViewController.swift */,
 				613209D7207C10830063BF7E /* JournalEditionController.swift */,
-				61510CFB2085009E0027DA19 /* PhotoPicker.swift */,
+				61A3DFB12073155500B5C2A0 /* MapViewController.swift */,
 				61D3BE64208BE05200511E20 /* UserSettingViewController.swift */,
-				61D3BE69208CFFD600511E20 /* EditorViewController.swift */,
+				6169A29F2096BF61007C0FC2 /* FullScreenImageViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -145,9 +166,10 @@
 		619225F1207980220080C73C /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				61D3BE62208BA4CD00511E20 /* DataSource.swift */,
 				619225F22079802E0080C73C /* LocationRecord.swift */,
+				619F221A2094D9590062566E /* LocationRecordManager.swift */,
 				613209D9207C110E0063BF7E /* Journal.swift */,
+				61D3BE62208BA4CD00511E20 /* JournalManager.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -155,6 +177,7 @@
 		619225F6207985F30080C73C /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				61510CFB2085009E0027DA19 /* PhotoPicker.swift */,
 				619225FB207988560080C73C /* Display.swift */,
 				619225F9207987610080C73C /* Storage.swift */,
 			);
@@ -222,6 +245,10 @@
 			isa = PBXGroup;
 			children = (
 				61D3BE67208C344000511E20 /* TextField.swift */,
+				611CC60D2093E38C008416B2 /* TableViewSection.swift */,
+				6169A2932096282E007C0FC2 /* LocationViewSection.swift */,
+				6169A2992096A9FE007C0FC2 /* JournalViewSection.swift */,
+				6169A29520962AE1007C0FC2 /* TableCells.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,18 +430,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				61510CFC2085009E0027DA19 /* PhotoPicker.swift in Sources */,
+				6169A2A02096BF61007C0FC2 /* FullScreenImageViewController.swift in Sources */,
 				61510CF820831F940027DA19 /* LocationEditionController.swift in Sources */,
 				613209D8207C10830063BF7E /* JournalEditionController.swift in Sources */,
 				61D3BE68208C344000511E20 /* TextField.swift in Sources */,
-				61D3BE63208BA4CD00511E20 /* DataSource.swift in Sources */,
+				61D3BE63208BA4CD00511E20 /* JournalManager.swift in Sources */,
 				619225F32079802E0080C73C /* LocationRecord.swift in Sources */,
 				619225EF207972BE0080C73C /* TabBarController.swift in Sources */,
+				619F221B2094D95A0062566E /* LocationRecordManager.swift in Sources */,
 				61A3DFB22073155500B5C2A0 /* MapViewController.swift in Sources */,
+				6169A29620962AE1007C0FC2 /* TableCells.swift in Sources */,
 				619225F52079832C0080C73C /* JournalTableViewController.swift in Sources */,
 				61510CF620831F4D0027DA19 /* LocationTableViewController.swift in Sources */,
+				6169A29E2096BAAD007C0FC2 /* DetailViewController.swift in Sources */,
+				6169A2942096282E007C0FC2 /* LocationViewSection.swift in Sources */,
 				619225FA207987610080C73C /* Storage.swift in Sources */,
+				6169A29A2096A9FE007C0FC2 /* JournalViewSection.swift in Sources */,
 				61D3BE65208BE05200511E20 /* UserSettingViewController.swift in Sources */,
+				6169A292209619D2007C0FC2 /* JournalViewController.swift in Sources */,
 				619225E9207951B00080C73C /* Keys.swift in Sources */,
+				611CC60E2093E38C008416B2 /* TableViewSection.swift in Sources */,
+				6169A290209619B7007C0FC2 /* LocationViewController.swift in Sources */,
 				619225FC207988560080C73C /* Display.swift in Sources */,
 				61A3DFB02073155500B5C2A0 /* AppDelegate.swift in Sources */,
 				613209DA207C110E0063BF7E /* Journal.swift in Sources */,

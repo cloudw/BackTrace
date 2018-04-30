@@ -153,11 +153,9 @@ class JournalEditionController : EditorViewController {
             self.record!.date = self.dateField.date
             self.record!.image = self.imageView.image
             
-            DataSource.updateJournal(journalId: record!.journalId)
+            JournalManager.updateJournal(journalId: record!.journalId)
             
-            if let tableView = navigationController?.viewControllers[0].view as? UITableView {
-                tableView.reloadData()
-            }
+            navigationController?.popViewController(animated: true)
         }
     }
     

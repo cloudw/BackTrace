@@ -24,14 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = TabBarController()
-
+        
         return true
     }
     
     func loadData() {
 //        Storage.clear(.documents)
-        DataSource.loadLocations()
-        DataSource.loadJournals()
+        LocationRecordManager.loadLocations()
+        JournalManager.loadJournals()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

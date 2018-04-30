@@ -161,25 +161,24 @@ class LocationEditionController: EditorViewController, GMSAutocompleteViewContro
 
     override func contentDidChange() -> Bool {
         return self.record?.locationName != self.locationNameField.text! ||
-        self.record?.date != self.dateField.date ||
-        self.record?.image != self.imageView.image ||
-        self.record?.latitude != self.latitude ||
-        self.record?.longtitude != self.longtitude
+            self.record?.address != self.addressField.text! ||
+            self.record?.date != self.dateField.date ||
+            self.record?.image != self.imageView.image ||
+            self.record?.latitude != self.latitude ||
+            self.record?.longtitude != self.longtitude
     }
     
     override func recordEdition() {
         if record != nil {
             self.record!.locationName = self.locationNameField.text!
+            self.record!.address = self.addressField.text!
             self.record!.date = self.dateField.date
             self.record!.image = self.imageView.image
             self.record!.latitude = self.latitude
             self.record!.longtitude = self.longtitude
             
-            DataSource.updateLocation(locationId: record!.locationId)
-            
-            if let tableView = navigationController?.viewControllers[0].view as? UITableView {
-                tableView.reloadData()
-            }
+            LocationRecordManager.updateLocation(locationId: record!.locationId)
+            navigationController?.popViewController(animated: true)
         }
     }
     
