@@ -146,3 +146,25 @@ class JournalLocationCell : TitileContentCell {
 
     
 }
+
+class TextFieldCell : UITableViewCell {
+    let textField = UITextField()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupView(){
+        addSubview(textField)
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.topAnchor.constraintEqualToSystemSpacingBelow(contentView.topAnchor, multiplier: 1).isActive = true
+        textField.bottomAnchor.constraintEqualToSystemSpacingBelow(contentView.bottomAnchor, multiplier: -1).isActive = true
+        textField.leadingAnchor.constraintEqualToSystemSpacingAfter(self.leadingAnchor, multiplier: 2).isActive = true
+        textField.trailingAnchor.constraintEqualToSystemSpacingAfter(self.trailingAnchor, multiplier: -2).isActive = true
+    }
+}

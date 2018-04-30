@@ -22,14 +22,14 @@ class LocationDetailSection : TableViewSection {
         self.location = location
         self.locationViewController = locationViewController
         
-        addCellType(id: "Time", cell: LabelValueCell.self)
-        addCellType(id: "Name", cell: LabelValueCell.self)
-        addCellType(id: "Address", cell: TitileSubtitleCell.self)
+        addCellType(id: "Time", cellType: LabelValueCell.self)
+        addCellType(id: "Name", cellType: LabelValueCell.self)
+        addCellType(id: "Address", cellType: TitileSubtitleCell.self)
     }
 
-    private func addCellType(id: String, cell: AnyClass){
+    private func addCellType(id: String, cellType: AnyClass){
         cellIds.append(id)
-        cellMap[id] = cell
+        cellMap[id] = cellType
     }
 
     func cellAt(row: Int) -> UITableViewCell {
@@ -78,14 +78,14 @@ class LocationPhotoSection : TableViewSection {
         self.location = location
         self.locationViewController = locationViewController
 
-        addCellType(id: "Photo", cell: ImageCell.self)
+        addCellType(id: "Photo", cellType: ImageCell.self)
     }
     
-    private func addCellType(id: String, cell: AnyClass){
+    private func addCellType(id: String, cellType: AnyClass){
         cellIds.append(id)
-        cellMap[id] = cell
+        cellMap[id] = cellType
     }
-    
+
     func cellAt(row: Int) -> UITableViewCell {
         let cellId = cellIds[row]
         let cell = locationViewController.tableView.dequeueReusableCell(withIdentifier: cellId)!

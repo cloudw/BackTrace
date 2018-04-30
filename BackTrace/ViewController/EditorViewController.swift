@@ -7,34 +7,25 @@
 //
 import UIKit
 
-class EditorViewController : UIViewController  {
-    let scrollView = UIScrollView()
+class EditorViewController : UITableViewController  {
     let imageView = UIImageView()
     let photoPicker = PhotoPicker()
     let keyboardToolBar = UIToolbar()
 
     override func viewDidLoad() {
-        setupScrollView()
+        setupView()
         setupInteraction()
     }
     
-    private func setupScrollView() {
+    private func setupView() {
         title = "Edit"
-        navigationController?.navigationBar.prefersLargeTitles = false
-
-        view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        scrollView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
-        scrollView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor).isActive = true
-        scrollView.isScrollEnabled = true
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.bounces = true
-        scrollView.alwaysBounceVertical = true
-        scrollView.backgroundColor = .white
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     private func setupInteraction() {
         let saveEditButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveButtonAction))
         navigationItem.rightBarButtonItem = saveEditButton

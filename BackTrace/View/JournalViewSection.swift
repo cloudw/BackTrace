@@ -21,14 +21,14 @@ class JournalTextSection : TableViewSection {
         self.journal = journal
         self.journalViewController = journalViewController
         
-        addCellType(id: "Time", cell: LabelValueCell.self)
-        addCellType(id: "Title", cell: LabelValueCell.self)
-        addCellType(id: "Body", cell: TitileSubtitleCell.self)
+        addCellType(id: "Time", cellType: LabelValueCell.self)
+        addCellType(id: "Title", cellType: LabelValueCell.self)
+        addCellType(id: "Body", cellType: TitileSubtitleCell.self)
     }
-    
-    private func addCellType(id: String, cell: AnyClass){
+
+    private func addCellType(id: String, cellType: AnyClass){
         cellIds.append(id)
-        cellMap[id] = cell
+        cellMap[id] = cellType
     }
 
     func cellAt(row: Int) -> UITableViewCell {
@@ -48,17 +48,17 @@ class JournalTextSection : TableViewSection {
         }
         return cell
     }
-    
+
     private func setupTimeCell(_ cell: UITableViewCell) {
         cell.textLabel?.text = "Time"
         cell.detailTextLabel?.text = journal.getDateString()
     }
-    
+
     private func setupNameCell(_ cell: UITableViewCell) {
         cell.textLabel?.text = "Title"
         cell.detailTextLabel?.text = journal.title
     }
-    
+
     private func setupAddressCell(_ cell: UITableViewCell) {
         cell.textLabel?.text = "Body"
         cell.detailTextLabel?.text = journal.summary
@@ -71,7 +71,7 @@ class JournalTextSection : TableViewSection {
         cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.lineBreakMode = .byWordWrapping
     }
-    
+
     private func setupImageCell(_ cell: UITableViewCell) {
         cell.imageView?.image = journal.image
         cell.imageView?.isUserInteractionEnabled = true
@@ -89,23 +89,23 @@ class JournalTextSection : TableViewSection {
 class JournalPhotoSection : TableViewSection {
     var journalViewController: JournalViewController
     let sectionTitle = "Photo"
-    
+
     var journal : Journal
     var cellIds = [String]() // Ids also serve as title for cell
     var cellMap = [String:AnyClass]()
-    
+
     init(journalViewController: JournalViewController, journal: Journal) {
         self.journal = journal
         self.journalViewController = journalViewController
-        
-        addCellType(id: "Photo", cell: ImageCell.self)
+
+        addCellType(id: "Photo", cellType: ImageCell.self)
     }
-    
-    private func addCellType(id: String, cell: AnyClass){
+
+    private func addCellType(id: String, cellType: AnyClass){
         cellIds.append(id)
-        cellMap[id] = cell
+        cellMap[id] = cellType
     }
-    
+
     func cellAt(row: Int) -> UITableViewCell {
         let cellId = cellIds[row]
         let cell = journalViewController.tableView.dequeueReusableCell(withIdentifier: cellId)!

@@ -23,6 +23,22 @@ class LocationEditionController: EditorViewController, GMSAutocompleteViewContro
     let longtitudeField = UILabel()
     let autoCompleteController = GMSAutocompleteViewController()
     
+    var sectionTitles : [String]
+
+    func setupTabelContent(){
+        sectionTitles = ["Summary", "Image"]
+        
+    }
+
+    init() {
+        setupTabelContent()
+        super.init(style: .plain)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
