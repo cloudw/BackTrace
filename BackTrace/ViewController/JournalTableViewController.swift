@@ -150,7 +150,6 @@ class JournalCell : UITableViewCell {
     }
     
     @objc func pop_details () {
-        print("editing")
         if recordController != nil {
             recordController!.showRecordDetail(cell: self)
         }

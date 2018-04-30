@@ -130,6 +130,61 @@ class JournalPhotoSection : TableViewSection {
             cell.imageView?.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
-    
+}
+
+class JournalLocationSection : TableViewSection {
+    var journalViewController: JournalViewController
+    let sectionTitle = "Location"
+
+    var journal : Journal
+    var cellIds : [String]
+    var cellMap = [String:AnyClass]()
+
+    init(journalViewController: JournalViewController, journal: Journal) {
+        self.journal = journal
+        self.journalViewController = journalViewController
+        
+        cellIds = journal.locationIds
+        reloadLocationList()
+    }
+
+    func reloadLocationList() {
+        var clearLocationList = [String]()
+        for locationId in journal.locationIds {
+            if LocationRecordManager.locationIds.contains(locationId) {
+                clearLocationList.append(locationId)
+            }
+        }
+        cellIds = clearLocationList
+        journal.locationIds = clearLocationList
+    }
+
+    func cellAt(row: Int) -> UITableViewCell {
+        let cellId = cellIds[row]
+        var cell = journalViewController.tableView.dequeueReusableCell(withIdentifier: cellId)
+        if cell == nil {
+            journalViewController.tableView.register(JournalLocationCell.self, forCellReuseIdentifier: cellId)
+            cell = journalViewController.tableView.dequeueReusableCell(withIdentifier: cellId)
+        }
+        setupLocationCell(cell!, location: LocationRecordManager.locations[cellId])
+        return cell!
+    }
+
+    private func setupLocationCell(_ cell: UITableViewCell, location: LocationRecord?) {
+        if location != nil {
+            cell.imageView?.image = location!.image
+            cell.imageView?.isUserInteractionEnabled = true
+            cell.imageView?.addGestureRecognizer(UITapGestureRecognizer(target: journalViewController, action: #selector(journalViewController.imageTapped(_:))))
+            
+            cell.textLabel?.text = location!.locationName
+            cell.detailTextLabel?.text = location!.address
+        } else {
+            cell.imageView?.image = #imageLiteral(resourceName: "add_image")
+            cell.imageView?.isUserInteractionEnabled = false
+            
+            cell.textLabel?.text = "Invalid location record"
+            cell.detailTextLabel?.text = "Record might have been deleted"
+        }
+    }
 }
 

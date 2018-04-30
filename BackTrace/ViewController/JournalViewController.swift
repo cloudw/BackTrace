@@ -15,14 +15,17 @@ class JournalViewController : DetailViewController {
     var sections = [TableViewSection]()
     var textSection : JournalTextSection?
     var photoSection : JournalPhotoSection?
+    var locationSection : JournalLocationSection?
     
     func loadLocationRecord(journal: Journal) {
         self.journal = journal
         
         textSection = JournalTextSection(journalViewController: self, journal: journal)
         photoSection = JournalPhotoSection(journalViewController: self, journal: journal)
+        locationSection = JournalLocationSection(journalViewController: self, journal: journal)
         sections.append(textSection!)
         sections.append(photoSection!)
+        sections.append(locationSection!)
 
         // Register cell ids
         for section in sections {
@@ -33,6 +36,11 @@ class JournalViewController : DetailViewController {
         }
     }
     
+    func reloadData() {
+        locationSection?.reloadLocationList()
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50
@@ -41,7 +49,7 @@ class JournalViewController : DetailViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        reloadData()
         super.viewWillAppear(animated)
         if navigationController != nil {
             title = "Jounal"
