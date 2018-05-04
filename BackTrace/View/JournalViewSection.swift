@@ -150,15 +150,10 @@ class JournalLocationSection : TableViewSection {
 
     func reloadLocationList() {
         var clearLocationList = [String]()
-//        for locationId in journal.locationIds {
-//            if LocationRecordManager.locationIds.contains(locationId) {
-//                clearLocationList.append(locationId)
-//            }
-//        }
-        
-        for locationId in LocationRecordManager.locationIds {
-            clearLocationList.append(locationId)
-            cellMap[locationId] = JournalLocationCell.self
+        for locationId in journal.locationIds {
+            if LocationRecordManager.locationIds.contains(locationId) {
+                clearLocationList.append(locationId)
+            }
         }
         cellIds = clearLocationList
         journal.locationIds = clearLocationList
