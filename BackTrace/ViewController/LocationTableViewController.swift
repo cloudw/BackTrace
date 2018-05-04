@@ -96,7 +96,9 @@ class LocationTableViewController: UITableViewController {
         
         let newId = LocationRecordManager.addLocation(starred: starred)
         tableView.register(LocationCell.self, forCellReuseIdentifier: newId)
-        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        tableView.reloadData()
+        // TODO: enable insert correctly without data reload
+        // tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -144,6 +146,7 @@ class LocationTableViewController: UITableViewController {
             LocationRecordManager.removeLocation(locationId: location!.locationId)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+        tableView.reloadData()
     }
     
     func showRecordDetail(cell: LocationCell) {

@@ -117,6 +117,9 @@ class ImageCell : TitileContentCell {
 }
 
 class JournalLocationCell : TitileContentCell {
+    var location : LocationRecord?
+    var journalViewController : JournalViewController?
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -134,4 +137,12 @@ class JournalLocationCell : TitileContentCell {
     override var canBecomeFirstResponder: Bool {
         return copyEnabled
     }
+    
+    @objc func showLocationDetail(){
+        if location != nil {
+            journalViewController?.showRecordDetail(location: location!)
+        }
+    }
+
+    
 }

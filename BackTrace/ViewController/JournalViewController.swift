@@ -83,4 +83,11 @@ class JournalViewController : DetailViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return sections[indexPath.section].cellAt(row: indexPath.row)
     }
+
+    func showRecordDetail(location: LocationRecord) {
+        let detailController = LocationViewController()
+        detailController.loadLocationRecord(location: location)
+        self.navigationController?.pushViewController(detailController, animated: true)
+    }
+
 }

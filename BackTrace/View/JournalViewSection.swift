@@ -150,10 +150,15 @@ class JournalLocationSection : TableViewSection {
 
     func reloadLocationList() {
         var clearLocationList = [String]()
-        for locationId in journal.locationIds {
-            if LocationRecordManager.locationIds.contains(locationId) {
-                clearLocationList.append(locationId)
-            }
+//        for locationId in journal.locationIds {
+//            if LocationRecordManager.locationIds.contains(locationId) {
+//                clearLocationList.append(locationId)
+//            }
+//        }
+        
+        for locationId in LocationRecordManager.locationIds {
+            clearLocationList.append(locationId)
+            cellMap[locationId] = JournalLocationCell.self
         }
         cellIds = clearLocationList
         journal.locationIds = clearLocationList
@@ -174,10 +179,17 @@ class JournalLocationSection : TableViewSection {
         if location != nil {
             cell.imageView?.image = location!.image
             cell.imageView?.isUserInteractionEnabled = true
+            cell.imageView?.clipsToBounds = true
             cell.imageView?.addGestureRecognizer(UITapGestureRecognizer(target: journalViewController, action: #selector(journalViewController.imageTapped(_:))))
             
             cell.textLabel?.text = location!.locationName
             cell.detailTextLabel?.text = location!.address
+            
+            if let locationCell = cell as? JournalLocationCell {
+                locationCell.location = location
+                locationCell.journalViewController = journalViewController
+                locationCell.addGestureRecognizer(UITapGestureRecognizer(target: locationCell, action: #selector(locationCell.showLocationDetail)))
+            }
         } else {
             cell.imageView?.image = #imageLiteral(resourceName: "add_image")
             cell.imageView?.isUserInteractionEnabled = false

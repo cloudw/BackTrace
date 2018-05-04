@@ -74,5 +74,6 @@ class LocationViewController : DetailViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return sections[indexPath.section].cellAt(row: indexPath.row)
     }
+
 }
 
