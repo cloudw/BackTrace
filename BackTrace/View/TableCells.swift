@@ -143,8 +143,6 @@ class JournalLocationCell : TitileContentCell {
             journalViewController?.showRecordDetail(location: location!)
         }
     }
-
-    
 }
 
 class TextFieldCell : UITableViewCell {
@@ -166,5 +164,32 @@ class TextFieldCell : UITableViewCell {
         textField.bottomAnchor.constraintEqualToSystemSpacingBelow(contentView.bottomAnchor, multiplier: -1).isActive = true
         textField.leadingAnchor.constraintEqualToSystemSpacingAfter(self.leadingAnchor, multiplier: 2).isActive = true
         textField.trailingAnchor.constraintEqualToSystemSpacingAfter(self.trailingAnchor, multiplier: -2).isActive = true
+    }
+}
+
+class DatePickerCell : UITableViewCell {
+    let datePicker = UIDatePicker()
+    
+    init() {
+        super.init(style: .default, reuseIdentifier: nil)
+        self.setupView()
+    }
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.setupView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupView() {
+        addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        datePicker.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        datePicker.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        datePicker.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
     }
 }

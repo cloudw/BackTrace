@@ -212,9 +212,9 @@
 		61A3DFAE2073155500B5C2A0 /* BackTrace */ = {
 			isa = PBXGroup;
 			children = (
-				61D3BE66208C343400511E20 /* View */,
 				619225F6207985F30080C73C /* Library */,
 				619225F1207980220080C73C /* DataModel */,
+				61D3BE66208C343400511E20 /* View */,
 				619225F0207978740080C73C /* ViewController */,
 				61A3DFAF2073155500B5C2A0 /* AppDelegate.swift */,
 				61A3DFB62073155600B5C2A0 /* Assets.xcassets */,
