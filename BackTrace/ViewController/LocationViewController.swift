@@ -9,6 +9,7 @@
 import UIKit
 import os
 
+
 class LocationViewController : DetailViewController {
     var locationRecord : LocationRecord?
     
@@ -49,8 +50,7 @@ class LocationViewController : DetailViewController {
     }
 
     @objc private func showEditor() {
-        let editController = LocationEditionController()
-        editController.loadRecord(record: locationRecord!)
+        let editController = LocationEditionController(location: locationRecord!)
         self.navigationController?.pushViewController(editController, animated: true)
     }
     

@@ -56,4 +56,7 @@ extension EditorTableViewSection {
         return cells[row]
     }
 
+    func heightFor(row: Int) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }

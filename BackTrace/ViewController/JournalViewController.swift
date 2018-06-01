@@ -58,8 +58,7 @@ class JournalViewController : DetailViewController {
     }
     
     @objc private func showEditor() {
-        let editController = JournalEditionController()
-        editController.loadRecord(record: journal!)
+        let editController = JournalEditionController(journal: journal!)
         self.navigationController?.pushViewController(editController, animated: true)
     }
     

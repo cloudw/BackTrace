@@ -10,6 +10,7 @@
 		611CC60E2093E38C008416B2 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611CC60D2093E38C008416B2 /* TableViewSection.swift */; };
 		613209D8207C10830063BF7E /* JournalEditionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613209D7207C10830063BF7E /* JournalEditionController.swift */; };
 		613209DA207C110E0063BF7E /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613209D9207C110E0063BF7E /* Journal.swift */; };
+		614D4D0220BB9B27002AD1B2 /* JournalEditorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614D4D0120BB9B27002AD1B2 /* JournalEditorSection.swift */; };
 		61510CF620831F4D0027DA19 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CF520831F4D0027DA19 /* LocationTableViewController.swift */; };
 		61510CF820831F940027DA19 /* LocationEditionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CF720831F940027DA19 /* LocationEditionController.swift */; };
 		61510CFC2085009E0027DA19 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61510CFB2085009E0027DA19 /* PhotoPicker.swift */; };
@@ -63,6 +64,7 @@
 		611CC60D2093E38C008416B2 /* TableViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
 		613209D7207C10830063BF7E /* JournalEditionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEditionController.swift; sourceTree = "<group>"; };
 		613209D9207C110E0063BF7E /* Journal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		614D4D0120BB9B27002AD1B2 /* JournalEditorSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEditorSection.swift; sourceTree = "<group>"; };
 		61510CF520831F4D0027DA19 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
 		61510CF720831F940027DA19 /* LocationEditionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEditionController.swift; sourceTree = "<group>"; };
 		61510CFB2085009E0027DA19 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
@@ -249,8 +251,9 @@
 				61D3BE67208C344000511E20 /* TextField.swift */,
 				6169A29520962AE1007C0FC2 /* TableCells.swift */,
 				611CC60D2093E38C008416B2 /* TableViewSection.swift */,
-				6169A2932096282E007C0FC2 /* LocationViewSection.swift */,
 				6169A2992096A9FE007C0FC2 /* JournalViewSection.swift */,
+				614D4D0120BB9B27002AD1B2 /* JournalEditorSection.swift */,
+				6169A2932096282E007C0FC2 /* LocationViewSection.swift */,
 				6169A2A12097A0E2007C0FC2 /* LocationEditorSection.swift */,
 			);
 			path = View;
@@ -440,6 +443,7 @@
 				61D3BE63208BA4CD00511E20 /* JournalManager.swift in Sources */,
 				619225F32079802E0080C73C /* LocationRecord.swift in Sources */,
 				619225EF207972BE0080C73C /* TabBarController.swift in Sources */,
+				614D4D0220BB9B27002AD1B2 /* JournalEditorSection.swift in Sources */,
 				619F221B2094D95A0062566E /* LocationRecordManager.swift in Sources */,
 				61A3DFB22073155500B5C2A0 /* MapViewController.swift in Sources */,
 				6169A29620962AE1007C0FC2 /* TableCells.swift in Sources */,

@@ -5,12 +5,15 @@
 //  Created by Yun Wu on 4/22/18.
 //  Copyright © 2018 Yun Wu. All rights reserved.
 //
+
 import UIKit
 
 class EditorViewController : UITableViewController  {
     let imageView = UIImageView()
     let photoPicker = PhotoPicker()
     let keyboardToolBar = UIToolbar()
+
+    var sections = [EditorTableViewSection]()
 
     override func viewDidLoad() {
         setupView()
@@ -51,6 +54,8 @@ class EditorViewController : UITableViewController  {
         view.endEditing(true)
     }
 
+    // Storage Interaction and Manage
+    
     @objc func saveButtonAction() {
         if contentDidChange() {
             showConfirmationAlert(title: "Save edition?", message: nil, yes: recordEdition, no: nil)
@@ -62,9 +67,14 @@ class EditorViewController : UITableViewController  {
     }
     
     func contentDidChange() -> Bool {
-        preconditionFailure("Must be overriden by children")
+        for section in sections {
+            if section.contentDidChange() {
+                return true
+            }
+        }
+        return false
     }
-    
+
     func recordEdition() {
         preconditionFailure("Must be overriden by children")
     }
@@ -78,6 +88,28 @@ class EditorViewController : UITableViewController  {
         alertController.addAction(yes)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // TableViewController Overrides
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section].sectionTitle
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].numberOfRows()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return sections[indexPath.section].cellAt(row: indexPath.row)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return sections[indexPath.section].heightFor(row: indexPath.row)
     }
 }
 

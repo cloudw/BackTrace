@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JournalTableViewController: UITableViewController, UIPopoverPresentationControllerDelegate {
+class JournalTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .white

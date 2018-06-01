@@ -11,7 +11,7 @@ import UIKit
 import GooglePlaces
 
 class LocationTimePickerSection : EditorTableViewSection {
-    var tableViewController : UITableViewController
+    var tableViewController : LocationEditionController
     var location : LocationRecord
 
     var sectionTitle = "Time"
@@ -23,7 +23,7 @@ class LocationTimePickerSection : EditorTableViewSection {
 
     let titleCell = UITableViewCell()
     
-    init(tableViewController: UITableViewController, location: LocationRecord) {
+    init(tableViewController: LocationEditionController, location: LocationRecord) {
         self.tableViewController = tableViewController
         self.location = location
         
@@ -34,7 +34,7 @@ class LocationTimePickerSection : EditorTableViewSection {
         self.cells = [datePickerCell]
     }
     
-    func heightForRowAt(row: Int) -> CGFloat {
+    func heightFor(row: Int) -> CGFloat {
         var height = tableViewController.tableView.rowHeight;
         if (row == 1){
             height = self.datePickerVisible ? 216.0 : 0.0;
@@ -87,7 +87,7 @@ class LocationTimePickerSection : EditorTableViewSection {
 }
 
 class LocationDetailEditSeciton : NSObject, EditorTableViewSection, GMSAutocompleteViewControllerDelegate {
-    var tableViewController : UITableViewController
+    var tableViewController : LocationEditionController
     var location : LocationRecord
     var sectionTitle = "Location"
     var latitude : Double
@@ -99,7 +99,7 @@ class LocationDetailEditSeciton : NSObject, EditorTableViewSection, GMSAutocompl
     
     let autoCompleteController = GMSAutocompleteViewController()
 
-    init(tableViewController controller: UITableViewController, location locationRecord: LocationRecord) {
+    init(tableViewController controller: LocationEditionController, location locationRecord: LocationRecord) {
         tableViewController = controller
         location = locationRecord
         latitude = locationRecord.latitude
