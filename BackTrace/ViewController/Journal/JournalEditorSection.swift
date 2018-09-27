@@ -17,7 +17,7 @@ class JournalTimePickerSection : EditorTableViewSection {
     var cells : [UITableViewCell]
     
     let datePickerCell = UITableViewCell()
-    var datePickerVisible = false
+    var datePickerVisible : Bool
     var datePicker = UIDatePicker()
     
     let titleCell = UITableViewCell()
@@ -27,53 +27,70 @@ class JournalTimePickerSection : EditorTableViewSection {
         self.journal = journal
         
         titleCell.textLabel?.text = journal.getDateString()
+        
         datePickerCell.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.topAnchor.constraint(equalTo: datePickerCell.contentView.topAnchor).isActive = true
+        datePicker.bottomAnchor.constraint(equalTo: datePickerCell.contentView.bottomAnchor).isActive = true
+        datePicker.isHidden = true
+        datePickerCell.isHidden = true
+        datePickerVisible = false
+
         datePicker.date = journal.date
         
-        self.cells = [datePickerCell]
+        self.cells = [titleCell, datePickerCell]
     }
     
-    func heightFor(row: Int) -> CGFloat {
-        var height = tableViewController.tableView.rowHeight;
-        if (row == 1){
-            height = self.datePickerVisible ? 216.0 : 0.0;
-        }
-        return height
-    }
-
-    private func hideDatePicker() {
+    private func hideDatePicker(indexPath: IndexPath) {
         datePickerVisible = false
-        tableViewController.tableView.beginUpdates()
-        tableViewController.tableView.endUpdates()
-        
+
         UIView.animate(withDuration: 0.25, animations: {
             self.datePicker.alpha = 0
         }) { finished in
+            self.datePickerCell.isHidden = true
             self.datePicker.isHidden = true
         }
+
+        tableViewController.tableView.beginUpdates()
+        //        tableViewController.tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        tableViewController.tableView.endUpdates()
+
     }
     
-    private func showDatePicker() {
+    private func showDatePicker(indexPath: IndexPath) {
         datePickerVisible = true
+//        tableViewController.tableView.insertRows(at: [indexPath], with: UITableViewRowAnimation.fade)
+        datePicker.alpha = 0
+
         tableViewController.tableView.beginUpdates()
         tableViewController.tableView.endUpdates()
-        datePicker.alpha = 0
+
         UIView.animate(withDuration: 0.25, animations: {
             self.datePicker.alpha = 1
         }) { finished in
+            self.datePickerCell.isHidden = false
             self.datePicker.isHidden = false
         }
     }
     
-    func didSelectRowAtRow(indexPath: IndexPath) {
+    func didSelectRowAt(indexPath: IndexPath) {
         if (indexPath.row == 0) {
+            let datePickerIndexPath = IndexPath(row: 1, section: indexPath.section)
             if (self.datePickerVisible){
-                hideDatePicker()
+                hideDatePicker(indexPath: datePickerIndexPath)
             } else {
-                showDatePicker()
+                showDatePicker(indexPath: datePickerIndexPath)
             }
         }
         tableViewController.tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func heightFor(row: Int) -> CGFloat {
+        if row == 1 {
+            return datePickerVisible ? 216 : 0
+        } else {
+            return UITableViewAutomaticDimension
+        }
     }
     
     func contentDidChange() -> Bool {
@@ -105,6 +122,9 @@ class JournalTextEditionSection : NSObject, EditorTableViewSection {
         titleCell.textField.text = journal.title
         textBodytCell.textField.text = journal.summary
         
+        tableViewController.addToolBar(textField: titleCell.textField)
+        tableViewController.addToolBar(textField: textBodytCell.textField)
+
         super.init()
     }
     

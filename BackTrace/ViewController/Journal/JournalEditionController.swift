@@ -15,7 +15,7 @@ class JournalEditionController : EditorViewController {
     init(journal: Journal) {
         record = journal
         super.init(style: .plain)
-        
+
         sections.append(JournalTimePickerSection(tableViewController: self, journal: record))
         sections.append(JournalTextEditionSection(tableViewController: self, journal: record))
     }
@@ -24,16 +24,12 @@ class JournalEditionController : EditorViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-//    private func setupInteraction() {
-//        self.photoPicker.setup(currentVC: navigationController!, targetImageView: self.imageView)
-//        let tap = UITapGestureRecognizer(target: self.photoPicker, action: #selector(self.photoPicker.addImage))
-//        imageView.addGestureRecognizer(tap)
-//        imageView.isUserInteractionEnabled = true
-//
-//        titleField.inputAccessoryView = keyboardToolBar
-//        summaryField.inputAccessoryView = keyboardToolBar
-//    }
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let timePickerSection = sections[indexPath.section] as? JournalTimePickerSection {
+            timePickerSection.didSelectRowAt(indexPath: indexPath)
+        } 
+    }
+    
     override func contentDidChange() -> Bool {
         for section in sections {
             if section.contentDidChange() {

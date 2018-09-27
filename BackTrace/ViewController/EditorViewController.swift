@@ -11,15 +11,24 @@ import UIKit
 class EditorViewController : UITableViewController  {
     let imageView = UIImageView()
     let photoPicker = PhotoPicker()
-    let keyboardToolBar = UIToolbar()
 
+    override init(style: UITableViewStyle) {
+        super.init(style: style)
+        tableView.estimatedRowHeight = 45
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     var sections = [EditorTableViewSection]()
 
     override func viewDidLoad() {
         setupView()
         setupInteraction()
     }
-    
+
     private func setupView() {
         title = "Edit"
     }
@@ -28,11 +37,11 @@ class EditorViewController : UITableViewController  {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = false
     }
-    
+
     private func setupInteraction() {
         let saveEditButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveButtonAction))
         navigationItem.rightBarButtonItem = saveEditButton
-        
+
         if tabBarController != nil {
             self.photoPicker.setup(currentVC: tabBarController!, targetImageView: self.imageView)
         } else if navigationController != nil {
@@ -40,22 +49,14 @@ class EditorViewController : UITableViewController  {
         } else {
             self.photoPicker.setup(currentVC: self, targetImageView: self.imageView)
         }
-        
+
         let tap = UITapGestureRecognizer(target: self.photoPicker, action: #selector(self.photoPicker.addImage))
         imageView.addGestureRecognizer(tap)
         imageView.isUserInteractionEnabled = true
-        
-        let doneEditingButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneEditing))
-        keyboardToolBar.setItems([doneEditingButton], animated: false)
-        keyboardToolBar.sizeToFit()
-    }
-    
-    @objc private func doneEditing() {
-        view.endEditing(true)
     }
 
     // Storage Interaction and Manage
-    
+
     @objc func saveButtonAction() {
         if contentDidChange() {
             showConfirmationAlert(title: "Save edition?", message: nil, yes: recordEdition, no: nil)
@@ -65,7 +66,7 @@ class EditorViewController : UITableViewController  {
     func loadRecord(record: AnyObject) {
         preconditionFailure("Must be overriden by children")
     }
-    
+
     func contentDidChange() -> Bool {
         for section in sections {
             if section.contentDidChange() {
@@ -78,7 +79,7 @@ class EditorViewController : UITableViewController  {
     func recordEdition() {
         preconditionFailure("Must be overriden by children")
     }
-    
+
     private func showConfirmationAlert(title: String?, message: String?, yes: (() -> Void)? , no: (() -> Void)?) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         
@@ -89,25 +90,25 @@ class EditorViewController : UITableViewController  {
         
         self.present(alertController, animated: true, completion: nil)
     }
-    
+
     // TableViewController Overrides
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
-    
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sections[section].sectionTitle
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sections[section].numberOfRows()
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return sections[indexPath.section].cellAt(row: indexPath.row)
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return sections[indexPath.section].heightFor(row: indexPath.row)
     }

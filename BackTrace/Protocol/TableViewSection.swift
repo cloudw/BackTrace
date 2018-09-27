@@ -36,27 +36,3 @@ extension TableViewSection {
     }
 }
 
-protocol EditorTableViewSection {
-    var sectionTitle : String { get }
-    var cells : [UITableViewCell] { get set }
-    
-    func contentDidChange() -> Bool
-    func saveContent()
-    
-    func numberOfRows() -> Int
-    func cellAt(row: Int) -> UITableViewCell
-}
-
-extension EditorTableViewSection {
-    func numberOfRows() -> Int {
-        return cells.count
-    }
-    
-    func cellAt(row: Int) -> UITableViewCell {
-        return cells[row]
-    }
-
-    func heightFor(row: Int) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-}

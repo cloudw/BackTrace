@@ -18,46 +18,41 @@ class LocationTimePickerSection : EditorTableViewSection {
     var cells : [UITableViewCell]
 
     let datePickerCell = UITableViewCell()
-    var datePickerVisible = false
+    var datePickerVisible : Bool
     var datePicker = UIDatePicker()
 
     let titleCell = UITableViewCell()
-    
+
     init(tableViewController: LocationEditionController, location: LocationRecord) {
         self.tableViewController = tableViewController
         self.location = location
+        datePickerVisible = false
+        datePicker.isHidden = true
         
         titleCell.textLabel?.text = location.getDateString()
         datePickerCell.addSubview(datePicker)
         datePicker.date = location.date
-        
-        self.cells = [datePickerCell]
+
+        self.cells = [titleCell, datePickerCell]
     }
     
-    func heightFor(row: Int) -> CGFloat {
-        var height = tableViewController.tableView.rowHeight;
-        if (row == 1){
-            height = self.datePickerVisible ? 216.0 : 0.0;
-        }
-        return height
-    }
-    
-    private func hideDatePicker() {
+    private func hideDatePicker(indexPath: IndexPath) {
         datePickerVisible = false
         tableViewController.tableView.beginUpdates()
         tableViewController.tableView.endUpdates()
-        
+
         UIView.animate(withDuration: 0.25, animations: {
             self.datePicker.alpha = 0
         }) { finished in
             self.datePicker.isHidden = true
         }
     }
-    
-    private func showDatePicker() {
+
+    private func showDatePicker(indexPath: IndexPath) {
         datePickerVisible = true
         tableViewController.tableView.beginUpdates()
         tableViewController.tableView.endUpdates()
+
         datePicker.alpha = 0
         UIView.animate(withDuration: 0.25, animations: {
             self.datePicker.alpha = 1
@@ -66,17 +61,26 @@ class LocationTimePickerSection : EditorTableViewSection {
         }
     }
     
-    func didSelectRowAtRow(indexPath: IndexPath) {
+    func tableView(didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == 0) {
+            let datePickerIndexPath = IndexPath(row: 1, section: indexPath.section)
             if (self.datePickerVisible){
-                hideDatePicker()
+                hideDatePicker(indexPath: datePickerIndexPath)
             } else {
-                showDatePicker()
+                showDatePicker(indexPath: datePickerIndexPath)
             }
         }
         tableViewController.tableView.deselectRow(at: indexPath, animated: true)
     }
-    
+
+    func heightFor(row: Int) -> CGFloat {
+        if row == 1 {
+            return datePickerVisible ? 216 : 0
+        } else {
+            return UITableViewAutomaticDimension
+        }
+    }
+
     func contentDidChange() -> Bool {
         return location.date == datePicker.date
     }
@@ -109,6 +113,9 @@ class LocationDetailEditSeciton : NSObject, EditorTableViewSection, GMSAutocompl
         addressCell.textField.placeholder = "Address"
         cells = [nameCell, addressCell]
         
+        tableViewController.addToolBar(textField: nameCell.textField)
+        tableViewController.addToolBar(textField: addressCell.textField)
+
         super.init()
         autoCompleteController.delegate = self
     }

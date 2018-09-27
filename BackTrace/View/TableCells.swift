@@ -12,7 +12,7 @@ import UIKit
 
 // Parent for all other TableViewCell in this file
 // Define generic styles
-class TitileContentCell : UITableViewCell {
+class TitleContentCell : UITableViewCell {
     var copyEnabled = false
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -66,7 +66,7 @@ class TitileContentCell : UITableViewCell {
     }
 }
 
-class LabelValueCell : TitileContentCell {
+class LabelValueCell : TitleContentCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
         enableCopy()
@@ -77,7 +77,7 @@ class LabelValueCell : TitileContentCell {
     }
 }
 
-class TitileSubtitleCell : TitileContentCell {
+class TitileSubtitleCell : TitleContentCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         enableCopy()
@@ -88,7 +88,7 @@ class TitileSubtitleCell : TitileContentCell {
     }
 }
 
-class ImageCell : TitileContentCell {
+class ImageCell : TitleContentCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -116,7 +116,7 @@ class ImageCell : TitileContentCell {
     }
 }
 
-class JournalLocationCell : TitileContentCell {
+class JournalLocationCell : TitleContentCell {
     var location : LocationRecord?
     var journalViewController : JournalViewController?
     
@@ -161,9 +161,7 @@ class TextFieldCell : UITableViewCell {
         addSubview(textField)
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.topAnchor.constraintEqualToSystemSpacingBelow(contentView.topAnchor, multiplier: 1).isActive = true
-        textField.bottomAnchor.constraintEqualToSystemSpacingBelow(contentView.bottomAnchor, multiplier: -1).isActive = true
-        textField.leadingAnchor.constraintEqualToSystemSpacingAfter(self.leadingAnchor, multiplier: 2).isActive = true
-        textField.trailingAnchor.constraintEqualToSystemSpacingAfter(self.trailingAnchor, multiplier: -2).isActive = true
+        textField.leadingAnchor.constraintEqualToSystemSpacingAfter(contentView.leadingAnchor, multiplier: 2).isActive = true
     }
 }
 
